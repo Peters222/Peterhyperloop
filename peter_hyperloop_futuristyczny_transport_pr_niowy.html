@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Hyperloop - Przyszłość Transportu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyberCyan: '#00f0ff',
+                        cyberMagenta: '#ff007f',
+                        cyberDark: '#05050a',
+                        cyberCard: '#0f1020',
+                        cyberBorder: '#1e2040'
+                    },
+                    fontFamily: {
+                        tech: ['Orbitron', 'sans-serif'],
+                        sans: ['Rajdhani', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Orbitron & Rajdhani -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #05050a;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-tech {
+            font-family: 'Orbitron', sans-serif;
+        }
+        .neon-glow-cyan {
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.5);
+        }
+        .neon-glow-magenta {
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.7), 0 0 20px rgba(255, 0, 127, 0.5);
+        }
+        .box-glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.1);
+        }
+        .box-glow-magenta {
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.3), inset 0 0 15px rgba(255, 0, 127, 0.1);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05050a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e2040;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+        @keyframes pulseSlow {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .animate-pulse-slow {
+            animation: pulseSlow 4s infinite ease-in-out;
+        }
+        @keyframes tubeMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(200%); }
+        }
+        .capsule-anim {
+            animation: tubeMove 3s infinite linear;
+        }
+    </style>
+</head>
+<body class="bg-cyberDark text-slate-100 selection:bg-cyberCyan selection:text-black">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cyberDark/80 backdrop-blur-md border-b border-cyberBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyberCyan to-cyberMagenta flex items-center justify-center box-glow-cyan">
+                    <i class="fa-solid fa-bolt-lightning text-black text-xl font-bold"></i>
+                </div>
+                <span class="font-tech text-2xl font-black tracking-wider bg-gradient-to-r from-cyberCyan to-cyberMagenta bg-clip-text text-transparent">
+                    PETER HYPERLOOP
+                </span>
+            </div>
+            <nav class="hidden md:flex space-x-8 text-lg font-semibold">
+                <a href="#hero" class="hover:text-cyberCyan transition-colors">Start</a>
+                <a href="#booking" class="hover:text-cyberCyan transition-colors">Rezerwacja</a>
+                <a href="#technology" class="hover:text-cyberCyan transition-colors">Technologia</a>
+                <a href="#routes" class="hover:text-cyberCyan transition-colors">Trasy</a>
+                <a href="#faq" class="hover:text-cyberCyan transition-colors">FAQ</a>
+            </nav>
+            <div>
+                <a href="#booking" class="px-6 py-2.5 rounded-full font-tech font-bold text-sm uppercase tracking-wider bg-gradient-to-r from-cyberCyan to-cyberMagenta text-black hover:opacity-90 transition-all shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                    Kup Bilet (Na Niby)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Grid & Glow Elements -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e204015_1px,transparent_1px),linear-gradient(to_bottom,#1e204015_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyberCyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-cyberMagenta/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-cyberCard border border-cyberBorder mb-8">
+                <span class="w-2.5 h-2.5 rounded-full bg-cyberCyan animate-ping"></span>
+                <span class="text-xs uppercase tracking-widest font-tech text-cyberCyan">System Vakuum V.9.4 Aktywny</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black font-tech tracking-tight mb-6 max-w-5xl mx-auto leading-tight">
+                Przyszłość transportu jest dzisiaj. Podróżuj z <span class="bg-gradient-to-r from-cyberCyan to-cyberMagenta bg-clip-text text-transparent neon-glow-cyan">prędkością dźwięku</span>.
+            </h1>
+
+            <p class="text-xl sm:text-2xl text-slate-400 max-w-3xl mx-auto mb-12">
+                Przełam bariery czasu i przestrzeni z <strong class="text-cyberCyan">Peter Hyperloop</strong>. Luksus, lewitacja magnetyczna i zero emisji bezpośredniej. Doświadcz futurystycznych podróży w pełni bezpiecznej symulacji.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-xl font-tech font-bold text-base uppercase tracking-wider bg-cyberCyan text-black hover:bg-white transition-all shadow-[0_0_30px_rgba(0,240,255,0.6)] flex items-center justify-center space-x-3">
+                    <span>Zarezerwuj Przejazd</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#technology" class="w-full sm:w-auto px-8 py-4 rounded-xl font-tech font-bold text-base uppercase tracking-wider bg-cyberCard border border-cyberBorder text-slate-200 hover:border-cyberMagenta hover:text-cyberMagenta transition-all flex items-center justify-center space-x-3">
+                    <span>Poznaj Technologię</span>
+                    <i class="fa-solid fa-microchip"></i>
+                </a>
+            </div>
+
+            <!-- Vacuum Tube Animation Preview -->
+            <div class="relative w-full max-w-4xl mx-auto h-28 bg-cyberCard/80 border border-cyberBorder rounded-2xl overflow-hidden box-glow-cyan flex items-center px-6">
+                <!-- Tube lines -->
+                <div class="absolute inset-x-0 top-3 h-[1px] bg-cyberCyan/30"></div>
+                <div class="absolute inset-x-0 bottom-3 h-[1px] bg-cyberCyan/30"></div>
+                <div class="absolute inset-x-0 top-1/2 h-[2px] border-t border-dashed border-cyberCyan/20"></div>
+
+                <div class="w-full flex justify-between items-center text-xs font-tech text-slate-500 uppercase tracking-widest relative z-10">
+                    <span>[STACJA ALPHA]</span>
+                    <span class="text-cyberCyan animate-pulse">CIŚNIENIE: 0.01 ATM</span>
+                    <span>[STACJA OMEGA]</span>
+                </div>
+
+                <!-- Moving Capsule -->
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 capsule-anim z-20">
+                    <div class="w-36 h-12 bg-gradient-to-r from-cyberCyan via-slate-100 to-cyberMagenta rounded-full shadow-[0_0_20px_#00f0ff] flex items-center justify-between px-3 border border-white/40">
+                        <div class="w-3 h-3 rounded-full bg-black"></div>
+                        <span class="text-[10px] font-tech font-black text-black tracking-tighter">PETER-X1</span>
+                        <div class="w-3 h-3 rounded-full bg-cyberMagenta animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-24 relative bg-slate-950/50 border-t border-b border-cyberBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyberMagenta font-tech text-sm uppercase tracking-widest block mb-2">[ Interaktywny Terminal Rezerwacji ]</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-tech tracking-tight">Kalkulator Trasy & Bilet Na Niby</h2>
+                <p class="text-slate-400 mt-4 text-lg">Wybierz cel podróży, klasę kapsuły i wygeneruj swój ekskluzywny cyfrowy bilet boarding pass.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Booking Form Column -->
+                <div class="lg:col-span-7 bg-cyberCard border border-cyberBorder rounded-2xl p-6 sm:p-8 box-glow-cyan">
+                    <form id="hyperloopForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Origin -->
+                            <div>
+                                <label class="block text-sm font-tech uppercase tracking-wider text-slate-300 mb-2">Stacja Początkowa</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-cyberCyan">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </span>
+                                    <select id="origin" class="w-full pl-10 pr-4 py-3 bg-cyberDark border border-cyberBorder rounded-xl text-slate-100 font-medium focus:outline-none focus:border-cyberCyan transition-colors">
+                                        <option value="Piotrkowice">Piotrkowice Centralne H-Port</option>
+                                        <option value="Grzęzno">Grzęzno Hyper-Terminal</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Destination -->
+                            <div>
+                                <label class="block text-sm font-tech uppercase tracking-wider text-slate-300 mb-2">Stacja Docelowa</label>
+                                <div class="relative">
+                                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-cyberMagenta">
+                                        <i class="fa-solid fa-bullseye"></i>
+                                    </span>
+                                    <select id="destination" class="w-full pl-10 pr-4 py-3 bg-cyberDark border border-cyberBorder rounded-xl text-slate-100 font-medium focus:outline-none focus:border-cyberMagenta transition-colors">
+                                        <option value="Grzęzno">Grzęzno Hyper-Terminal</option>
+                                        <option value="Piotrkowice">Piotrkowice Centralne H-Port</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Class Selection -->
+                        <div>
+                            <label class="block text-sm font-tech uppercase tracking-wider text-slate-300 mb-3">Wybierz Klasę Wagonu</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="capsuleClass" value="Standard" class="peer sr-only" checked>
+                                    <div class="p-4 rounded-xl bg-cyberDark border border-cyberBorder peer-checked:border-cyberCyan peer-checked:box-glow-cyan hover:border-slate-500 transition-all text-center h-full flex flex-col justify-between">
+                                        <div>
+                                            <i class="fa-solid fa-cube text-cyberCyan text-xl mb-2"></i>
+                                            <h4 class="font-tech font-bold text-sm">Standard</h4>
+                                            <p class="text-xs text-slate-400 mt-1">Ergonomiczny fotel, ekran VR.</p>
+                                        </div>
+                                        <span class="text-xs font-tech text-cyberCyan mt-3 block">0 CR / przejazd</span>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="capsuleClass" value="Business" class="peer sr-only">
+                                    <div class="p-4 rounded-xl bg-cyberDark border border-cyberBorder peer-checked:border-cyberCyan peer-checked:box-glow-cyan hover:border-slate-500 transition-all text-center h-full flex flex-col justify-between">
+                                        <div>
+                                            <i class="fa-solid fa-gem text-cyberCyan text-xl mb-2"></i>
+                                            <h4 class="font-tech font-bold text-sm">Business Suite</h4>
+                                            <p class="text-xs text-slate-400 mt-1">Prywatna kabina, AI Butler.</p>
+                                        </div>
+                                        <span class="text-xs font-tech text-cyberCyan mt-3 block">250 CR</span>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="capsuleClass" value="Ultra VIP" class="peer sr-only">
+                                    <div class="p-4 rounded-xl bg-cyberDark border border-cyberBorder peer-checked:border-cyberMagenta peer-checked:box-glow-magenta hover:border-slate-500 transition-all text-center h-full flex flex-col justify-between">
+                                        <div>
+                                            <i class="fa-solid fa-crown text-cyberMagenta text-xl mb-2"></i>
+                                            <h4 class="font-tech font-bold text-sm">Ultra VIP Zero-G</h4>
+                                            <p class="text-xs text-slate-400 mt-1">Antygrawitacja, szampan, penthouse.</p>
+                                        </div>
+                                        <span class="text-xs font-tech text-cyberMagenta mt-3 block">1000 CR</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Passenger Name & Date -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-tech uppercase tracking-wider text-slate-300 mb-2">Imię i Nazwisko Pasażera</label>
+                                <input type="text" id="passengerName" placeholder="np. Alex Mercer" value="Cyber Pasażer" required class="w-full px-4 py-3 bg-cyberDark border border-cyberBorder rounded-xl text-slate-100 font-medium focus:outline-none focus:border-cyberCyan transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-tech uppercase tracking-wider text-slate-300 mb-2">Data i Godzina Odlotu</label>
+                                <input type="datetime-local" id="flightDate" class="w-full px-4 py-3 bg-cyberDark border border-cyberBorder rounded-xl text-slate-100 font-medium focus:outline-none focus:border-cyberCyan transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="w-full py-4 rounded-xl font-tech font-bold text-lg uppercase tracking-wider bg-gradient-to-r from-cyberCyan to-cyberMagenta text-black hover:opacity-95 transition-all shadow-[0_0_25px_rgba(0,240,255,0.5)] flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-ticket"></i>
+                            <span>Zarezerwuj Przejazd (Na Niby)</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Simulation Specs & Quick Calculator Summary -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-cyberCard border border-cyberBorder rounded-2xl p-6 sm:p-8 box-glow-magenta">
+                        <h3 class="font-tech font-bold text-xl mb-6 text-cyberMagenta flex items-center space-x-3">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Parametry Symulacji Przelotu</span>
+                        </h3>
+
+                        <div class="space-y-4 font-tech">
+                            <div class="flex justify-between items-center p-3 rounded-lg bg-cyberDark/60 border border-cyberBorder">
+                                <span class="text-slate-400 text-sm">Prędkość Przelotowa:</span>
+                                <span class="text-cyberCyan font-bold text-lg">1200 km/h</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-lg bg-cyberDark/60 border border-cyberBorder">
+                                <span class="text-slate-400 text-sm">Szacowany Czas:</span>
+                                <span id="simTime" class="text-cyberMagenta font-bold text-lg">45 min</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-lg bg-cyberDark/60 border border-cyberBorder">
+                                <span class="text-slate-400 text-sm">Przeciążenie w tunelu:</span>
+                                <span class="text-slate-200 font-bold">1.2 G (Komfort)</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 rounded-lg bg-cyberDark/60 border border-cyberBorder">
+                                <span class="text-slate-400 text-sm">Lewitacja Magnetyczna:</span>
+                                <span class="text-cyberCyan font-bold">Aktywna (100%)</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 p-4 rounded-xl bg-cyberCyan/10 border border-cyberCyan/30 text-xs text-slate-300">
+                            <i class="fa-solid fa-triangle-exclamation text-cyberCyan mr-2"></i>
+                            <span>Uwaga: Wszystkie rezerwacje w systemie "Peter Hyperloop" są symulacją cyfrową w celach pokazowych. Żadna fizyczna kapsuła nie ucierpi.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUCCESS BOARDING PASS MODAL / SECTION (Hidden by default) -->
+            <div id="boardingPassContainer" class="hidden mt-12 transition-all duration-500">
+                <div class="max-w-2xl mx-auto bg-cyberCard border-2 border-cyberCyan rounded-2xl p-6 sm:p-8 box-glow-cyan relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-cyberCyan/20 rounded-full blur-3xl pointer-events-none"></div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-cyberBorder pb-6 mb-6">
+                        <div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-bolt-lightning text-cyberCyan"></i>
+                                <span class="font-tech font-black text-xl bg-gradient-to-r from-cyberCyan to-cyberMagenta bg-clip-text text-transparent">PETER HYPERLOOP</span>
+                            </div>
+                            <p class="text-xs text-slate-400 font-tech mt-1">OFICJALNY BILET CYFROWY (NA NIBY)</p>
+                        </div>
+                        <div class="mt-4 sm:mt-0 text-right">
+                            <span class="px-3 py-1 rounded-full text-xs font-tech bg-cyberCyan/20 text-cyberCyan border border-cyberCyan/40 uppercase font-bold tracking-widest" id="passStatus">Status: Potwierdzone</span>
+                            <div class="text-xs text-slate-400 mt-2 font-mono" id="passId">ID: PH-9842-X</div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
+                        <div>
+                            <span class="text-xs text-slate-400 font-tech uppercase block">Pasażer</span>
+                            <span id="passPassenger" class="font-bold text-lg text-slate-100">Alex Mercer</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-tech uppercase block">Klasa</span>
+                            <span id="passClass" class="font-bold text-lg text-cyberCyan">Standard</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-tech uppercase block">Skąd</span>
+                            <span id="passOrigin" class="font-bold text-lg text-slate-100">Warszawa</span>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-400 font-tech uppercase block">Dokąd</span>
+                            <span id="passDest" class="font-bold text-lg text-cyberMagenta">Nowy Jork</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-cyberDark p-4 rounded-xl border border-cyberBorder flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center space-x-4">
+                            <!-- Simulated QR Code SVG -->
+                            <div class="w-20 h-20 bg-white p-2 rounded-lg flex items-center justify-center">
+                                <svg viewBox="0 0 24 24" class="w-full h-full text-black fill-current">
+                                    <path d="M2,2H10V10H2V2M4,4V8H8V4H4M14,2H22V10H14V2M16,4V8H20V4H16M2,14H10V22H2V14M4,16V20H8V16H4M18,14V18H22V14H18M14,18H16V22H14V18M20,18H22V22H20V18M12,2H14V6H12V2M12,8H14V12H12V8M12,14H14V18H12V14M12,20H14V22H12V20M6,12H8V14H6V12M18,12H20V14H18V12Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-xs font-tech text-slate-400 block">Skanuj przy bramce weryfikacyjnej</span>
+                                <span class="text-sm font-bold text-cyberCyan font-mono">SECURE_HASH_VAKUUM_77X</span>
+                                <div class="text-xs text-slate-400 mt-1" id="passDateText">Data: 2026-10-10 12:00</div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2 w-full sm:w-auto">
+                            <button onclick="window.print()" class="flex-1 sm:flex-none px-4 py-2.5 rounded-lg bg-cyberDark border border-cyberBorder hover:border-cyberCyan text-xs font-tech uppercase tracking-wider transition-colors">
+                                <i class="fa-solid fa-print mr-1"></i> Drukuj
+                            </button>
+                            <button onclick="resetBooking()" class="flex-1 sm:flex-none px-4 py-2.5 rounded-lg bg-cyberCyan text-black font-bold text-xs font-tech uppercase tracking-wider hover:bg-white transition-colors">
+                                Nowa Rezerwacja
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyberCyan font-tech text-sm uppercase tracking-widest block mb-2">[ Architektura Przyszłości ]</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-tech tracking-tight">Jak Działa Peter Hyperloop?</h2>
+                <p class="text-slate-400 mt-4 text-lg">Innowacje fizyczne i kwantowe, które eliminują opory i pozwalają osiągnąć prędkości hipersoniczne.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tile 1 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-2xl p-8 hover:border-cyberCyan transition-all group box-glow-cyan">
+                    <div class="w-14 h-14 rounded-xl bg-cyberCyan/10 border border-cyberCyan/30 flex items-center justify-center text-cyberCyan text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-magnet"></i>
+                    </div>
+                    <h3 class="font-tech font-bold text-xl mb-3 text-slate-100">Lewitacja Magnetyczna (Maglev)</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Zaawansowane nadprzewodniki wysokotemperaturowe sprawiają, że kapsuła unosi się wewnątrz tuby bez dotykania ścianek, co eliminuje tarcie mechaniczne do zera.
+                    </p>
+                </div>
+
+                <!-- Tile 2 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-2xl p-8 hover:border-cyberMagenta transition-all group box-glow-magenta">
+                    <div class="w-14 h-14 rounded-xl bg-cyberMagenta/10 border border-cyberMagenta/30 flex items-center justify-center text-cyberMagenta text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <h3 class="font-tech font-bold text-xl mb-3 text-slate-100">Próżnia Kwantowa</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Zastosowanie pomp próżniowych nowej generacji usuwa 99.9% cząsteczek powietrza z tunelu, redukując opór aerodynamiczny do wartości niemierzalnych w fizyce klasycznej.
+                    </p>
+                </div>
+
+                <!-- Tile 3 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-2xl p-8 hover:border-cyberCyan transition-all group box-glow-cyan">
+                    <div class="w-14 h-14 rounded-xl bg-cyberCyan/10 border border-cyberCyan/30 flex items-center justify-center text-cyberCyan text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-tech font-bold text-xl mb-3 text-slate-100">Zero Oporów & Bezpieczeństwo</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Autonomiczny system sztucznej inteligencji Peter-AI monitoruje każdy milimetr trasy z prędkością światła, gwarantując pełną stabilność kapsuły w każdych warunkach.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="routes" class="py-24 relative bg-slate-950/50 border-t border-b border-cyberBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cyberMagenta font-tech text-sm uppercase tracking-widest block mb-2">[ Siatka Połączeń ]</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-tech tracking-tight">Dostępne Trasy & Czas Przelotu</h2>
+                <p class="text-slate-400 mt-4 text-lg">Ekskluzywna linia superekspresowa Peter Hyperloop między Piotrkowicami a Grzęznem.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Route Card 1 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-2xl p-8 hover:border-cyberCyan transition-all box-glow-cyan">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs font-tech text-cyberCyan uppercase tracking-widest">[ Linia Główna ]</span>
+                        <i class="fa-solid fa-route text-cyberCyan text-xl"></i>
+                    </div>
+                    <h4 class="font-tech font-bold text-2xl mb-2">Piotrkowice → Grzęzno</h4>
+                    <div class="text-4xl font-black font-tech text-cyberCyan my-4">3 min. 45 sek.</div>
+                    <p class="text-sm text-slate-400 leading-relaxed">Odległość: 85 km | Maksymalna prędkość: 1280 km/h | Lewitacja magnetyczna pełna</p>
+                </div>
+
+                <!-- Route Card 2 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-2xl p-8 hover:border-cyberMagenta transition-all box-glow-magenta">
+                    <div class="flex justify-between items-center mb-6">
+                        <span class="text-xs font-tech text-cyberMagenta uppercase tracking-widest">[ Linia Powrotna ]</span>
+                        <i class="fa-solid fa-route text-cyberMagenta text-xl"></i>
+                    </div>
+                    <h4 class="font-tech font-bold text-2xl mb-2">Grzęzno → Piotrkowice</h4>
+                    <div class="text-4xl font-black font-tech text-cyberMagenta my-4">3 min. 45 sek.</div>
+                    <p class="text-sm text-slate-400 leading-relaxed">Odległość: 85 km | Maksymalna prędkość: 1280 km/h | Lewitacja magnetyczna pełna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-cyberCyan font-tech text-sm uppercase tracking-widest block mb-2">[ Centrum Wiedzy ]</span>
+                <h2 class="text-3xl sm:text-5xl font-black font-tech tracking-tight">Często Zadawane Pytania</h2>
+                <p class="text-slate-400 mt-4 text-lg">Wszystko, co musisz wiedzieć o podróżach z Peter Hyperloop.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-xl p-6">
+                    <h3 class="font-tech font-bold text-lg text-slate-100 mb-2 flex items-center justify-between cursor-pointer">
+                        <span>Czy podróż hyperloopem jest bezpieczna dla zdrowia?</span>
+                        <i class="fa-solid fa-chevron-down text-cyberCyan text-sm"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                        Tak! Przeciętne przyspieszenie w kapsułach Peter Hyperloop jest projektowane tak, aby nie przekraczać komfortowych dla ludzkiego ciała wartości (ok. 1.2G). System stabilizacji magnetycznej pochłania wszelkie drgania.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-xl p-6">
+                    <h3 class="font-tech font-bold text-lg text-slate-100 mb-2 flex items-center justify-between cursor-pointer">
+                        <span>Jak działa system rezerwacji "na niby"?</span>
+                        <i class="fa-solid fa-chevron-down text-cyberCyan text-sm"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                        Nasza strona to futurystyczny projekt koncepcyjny. Rezerwacje oraz wygenerowane bilety boarding pass mają charakter symulacyjny i pokazowy – służą doskonałej zabawie z motywem cyberpunk i sci-fi.
+                    </p>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-cyberCard border border-cyberBorder rounded-xl p-6">
+                    <h3 class="font-tech font-bold text-lg text-slate-100 mb-2 flex items-center justify-between cursor-pointer">
+                        <span>Ile bagażu mogę zabrać do kapsuły?</span>
+                        <i class="fa-solid fa-chevron-down text-cyberCyan text-sm"></i>
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                        W klasie Standard do dyspozycji masz schowek o pojemności do 30 kg. W klasach Business oraz Ultra VIP limity są znacznie zwiększone, a bagaż podróżuje w dedykowanym module magnetycznym tuż obok Twojej kabiny.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-cyberDark border-t border-cyberBorder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyberCyan to-cyberMagenta flex items-center justify-center">
+                    <i class="fa-solid fa-bolt-lightning text-black text-sm font-bold"></i>
+                </div>
+                <span class="font-tech font-bold text-lg tracking-wider text-slate-200">PETER HYPERLOOP</span>
+            </div>
+            <p class="text-xs text-slate-500 text-center md:text-left">
+                &copy; 2026 Peter Hyperloop Corp. Wszelkie prawa zastrzeżone. Projekt symulacyjny sci-fi.
+            </p>
+            <div class="flex space-x-6 text-slate-400">
+                <a href="#" class="hover:text-cyberCyan transition-colors"><i class="fa-brands fa-twitter text-lg"></i></a>
+                <a href="#" class="hover:text-cyberCyan transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="#" class="hover:text-cyberCyan transition-colors"><i class="fa-brands fa-discord text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Automatic time estimation & dynamic updates based on origin/destination
+        const originSelect = document.getElementById('origin');
+        const destSelect = document.getElementById('destination');
+        const simTimeEl = document.getElementById('simTime');
+
+        function calculateTravelTime() {
+            const origin = originSelect.value;
+            const dest = destSelect.value;
+            
+            if (origin === dest) {
+                simTimeEl.textContent = "0 min (Wybierz różne stacje)";
+                return;
+            }
+
+            simTimeEl.textContent = "3 min 45 sek";
+        }
+
+        originSelect.addEventListener('change', calculateTravelTime);
+        destSelect.addEventListener('change', calculateTravelTime);
+
+        // Form submission and boarding pass generation
+        const form = document.getElementById('hyperloopForm');
+        const boardingPassContainer = document.getElementById('boardingPassContainer');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const passengerName = document.getElementById('passengerName').value;
+            const origin = originSelect.value;
+            const dest = destSelect.value;
+            const capsuleClass = document.querySelector('input[name="capsuleClass"]:checked').value;
+            const flightDate = document.getElementById('flightDate').value || "2026-10-10 12:00";
+
+            // Update boarding pass DOM
+            document.getElementById('passPassenger').textContent = passengerName;
+            document.getElementById('passOrigin').textContent = origin;
+            document.getElementById('passDest').textContent = dest;
+            document.getElementById('passClass').textContent = capsuleClass;
+            document.getElementById('passDateText').textContent = "Data: " + flightDate.replace('T', ' ');
+            
+            // Random ID
+            const randomId = 'PH-' + Math.floor(1000 + Math.random() * 9000) + '-' + (['X', 'ALPHA', 'V9'][Math.floor(Math.random()*3)]);
+            document.getElementById('passId').textContent = 'ID: ' + randomId;
+
+            // Show pass with smooth scroll
+            boardingPassContainer.classList.remove('hidden');
+            boardingPassContainer.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function resetBooking() {
+            boardingPassContainer.classList.add('hidden');
+            form.reset();
+            window.scrollTo({ top: document.getElementById('booking').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        // Set default date picker value to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        document.getElementById('flightDate').value = tomorrow.toISOString().slice(0, 16);
+    </script>
+</body>
+</html>
